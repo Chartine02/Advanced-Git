@@ -92,3 +92,77 @@ $ git commit --amend -m "created the fourth file"
 ```
 
 ### Edit commit history
+
+```
+TheGym@DESKTOP-9QFHBAI MINGW64 ~/Desktop/Gym/Advanced-Git (main)
+$ git  rebase -i --root
+Stopped at 7f864c1...  chore: Create another file
+You can amend the commit now, with
+
+  git commit --amend
+
+Once you are satisfied with your changes, run
+
+  git rebase --continue
+
+TheGym@DESKTOP-9QFHBAI MINGW64 ~/Desktop/Gym/Advanced-Git (main|REBASE 3/5)
+$ git commit --amend
+[detached HEAD f6ae3bc] chore: Create second file
+ Date: Mon May 20 19:42:08 2024 +0200
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 test2.md
+
+TheGym@DESKTOP-9QFHBAI MINGW64 ~/Desktop/Gym/Advanced-Git (main|REBASE 3/5)
+$ git rebase --continue
+You must edit all merge conflicts and then
+mark them as resolved using git add
+
+TheGym@DESKTOP-9QFHBAI MINGW64 ~/Desktop/Gym/Advanced-Git (main|REBASE 3/5)
+$ git add .
+
+TheGym@DESKTOP-9QFHBAI MINGW64 ~/Desktop/Gym/Advanced-Git (main|REBASE 3/5)
+$ git commit -m 'updated readme'
+[detached HEAD 2eaaa04] updated readme
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+```
+
+### Keeping History Tidy - Squashing Commits
+
+```
+TheGym@DESKTOP-9QFHBAI MINGW64 ~/Desktop/Gym/Advanced-Git (main)
+$ git rebase -i --root
+[detached HEAD 586ba7e] Creating initial files
+ Date: Mon May 20 19:42:07 2024 +0200
+ 2 files changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 test1.md
+ create mode 100644 test2.md
+Successfully rebased and updated refs/heads/main.
+
+TheGym@DESKTOP-9QFHBAI MINGW64 ~/Desktop/Gym/Advanced-Git (main)
+$ git log
+commit 85362b6b7e23ec54651848bac2041ea526869e4b (HEAD -> main)
+Author: Chartine02 <noellachartine125@gmail.com>
+Date:   Tue May 21 07:54:22 2024 +0200
+
+    Updated readme
+
+commit e944609d6e86f950577fb71eee6686b74b8c85da
+Author: Chartine02 <noellachartine125@gmail.com>
+Date:   Mon May 20 19:42:41 2024 +0200
+
+    created the fourth file
+
+commit 204e37ac695a583fb533a01411df6e87d0eccf21
+Author: Chartine02 <noellachartine125@gmail.com>
+Date:   Tue May 21 08:11:26 2024 +0200
+
+    updated readme
+
+commit 586ba7e4eeb11e6963b1832164ce801c978f3b29
+Author: Chartine02 <noellachartine125@gmail.com>
+Date:   Mon May 20 19:42:07 2024 +0200
+
+    Creating initial files
+
+```
