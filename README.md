@@ -61,7 +61,7 @@ Date:   Tue May 21 11:54:11 2024 +0200
 
 ```
 
-## Refining git history
+### Part 1: Refining git history
 
 ```
 TheGym@DESKTOP-9QFHBAI MINGW64 ~/Desktop/Gym/Advanced-Git-Exercises (main)
@@ -297,4 +297,94 @@ Date:   Tue May 21 12:15:04 2024 +0200
     Add third file
 
     Add fourth file
+```
+
+### 9.Visualizing Commit History (Bonus)
+
+```
+TheGym@DESKTOP-9QFHBAI MINGW64 ~/Desktop/Gym/Advanced-Git-Exercises (main)
+$ git log --graph
+* commit fc3d1afce1ab6be4ce44fad98f1f57f865f30ad7 (HEAD -> main)
+| Author: Chartine02 <noellachartine125@gmail.com>
+| Date:   Tue May 21 14:31:00 2024 +0200
+|
+|     Implemented test 5
+|
+* commit 7feaa8420a5cb347b6faee067f8240437cf56d3f
+| Author: Chartine02 <noellachartine125@gmail.com>
+| Date:   Tue May 21 11:54:11 2024 +0200
+|
+|     Create initial files
+|
+|     chore: Create initial file
+|
+|     chore: Create second file
+|
+* commit 51d7a039903183e11576fa4df4f196570d063198
+  Author: Chartine02 <noellachartine125@gmail.com>
+  Date:   Tue May 21 12:15:04 2024 +0200
+
+      Create third and fourth files
+
+      Add third file
+
+      Add fourth file
+
+```
+
+### 10.Understanding Reflogs (Bonus)
+
+```
+TheGym@DESKTOP-9QFHBAI MINGW64 ~/Desktop/Gym/Advanced-Git-Exercises (main)
+$ git reflog
+fc3d1af (HEAD -> main) HEAD@{0}: cherry-pick: Implemented test 5
+7feaa84 HEAD@{1}: checkout: moving from ft-branch to main
+ea5afb0 (ft-branch) HEAD@{2}: commit: Implemented test 5
+7feaa84 HEAD@{3}: checkout: moving from main to ft-branch
+7feaa84 HEAD@{4}: rebase (finish): returning to refs/heads/main
+7feaa84 HEAD@{5}: rebase (pick): Create initial files
+51d7a03 HEAD@{6}: rebase (pick): Create third and fourth files
+3fed002 HEAD@{7}: rebase (start): checkout 3fed00258523525b86d35e3d8e28135e54be7b1e
+e321886 HEAD@{8}: rebase (finish): returning to refs/heads/main
+e321886 HEAD@{9}: rebase (start): checkout HEAD~1
+e321886 HEAD@{10}: rebase (finish): returning to refs/heads/main
+e321886 HEAD@{11}: rebase (start): checkout HEAD~1
+e321886 HEAD@{12}: rebase (finish): returning to refs/heads/main
+e321886 HEAD@{13}: rebase: fast-forward
+29598c3 HEAD@{14}: rebase: fast-forward
+2d384f3 HEAD@{15}: rebase (start): checkout 2d384f33418bd27296c717307906122b0e1adc81
+e321886 HEAD@{16}: rebase (finish): returning to refs/heads/main
+e321886 HEAD@{17}: reset: moving to HEAD~1
+9e27263 HEAD@{18}: rebase: fast-forward
+e321886 HEAD@{19}: rebase: fast-forward
+29598c3 HEAD@{20}: rebase: fast-forward
+810f405 HEAD@{21}: rebase (start): checkout 810f4057cfe8e75d7d965a70382ae15662518c5d
+9e27263 HEAD@{22}: commit: Unwanted commit
+e321886 HEAD@{23}: rebase (finish): returning to refs/heads/main
+e321886 HEAD@{24}: rebase (squash): Create third and fourth files
+e945194 HEAD@{25}: rebase: fast-forward
+29598c3 HEAD@{26}: rebase: fast-forward
+ab78a40 HEAD@{27}: rebase (start): checkout ab78a40af02ce71550de7ceecbce2ffd0b676b64
+c43b75e HEAD@{28}: commit: Add fourth file
+e945194 HEAD@{29}: commit: Add third file
+29598c3 HEAD@{30}: reset: moving to HEAD~
+ed4f5bb HEAD@{31}: rebase (finish): returning to refs/heads/main
+ed4f5bb HEAD@{32}: rebase: fast-forward
+29598c3 HEAD@{33}: rebase: fast-forward
+c3254ca HEAD@{34}: rebase (start): checkout c3254cabedc3dd20afb85fe5867de85120468e66
+ed4f5bb HEAD@{35}: rebase (finish): returning to refs/heads/main
+ed4f5bb HEAD@{36}: rebase (pick): chore: Create third and fourth files
+29598c3 HEAD@{37}: rebase (squash): Create initial files
+8b3c8fb HEAD@{38}: rebase: fast-forward
+3742603 HEAD@{39}: rebase (start): checkout 37426030ff1fa2f8e43d973dd79fac1a64210129
+be54904 HEAD@{40}: rebase (finish): returning to refs/heads/main
+be54904 HEAD@{41}: rebase (pick): chore: Create third and fourth files
+```
+
+## Part 2 : Branching Basics (10 Challenges)
+
+### Feature Branch Creation
+
+```
+
 ```
