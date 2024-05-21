@@ -3,53 +3,34 @@
 ### Initialize Your Environment
 
 ```
-ouch test{1..4}.md
-bash: ouch: command not found
-
-TheGym@DESKTOP-9QFHBAI MINGW64 ~/Desktop/Gym/Advanced-Git (main)
-$ git add test1.md && git commit -m "chore: Create initial file"
-fatal: pathspec 'test1.md' did not match any files
-
-TheGym@DESKTOP-9QFHBAI MINGW64 ~/Desktop/Gym/Advanced-Git (main)
-$ git add test2.md && git commit -m "chore: Create another file"
-fatal: pathspec 'test2.md' did not match any files
-
-TheGym@DESKTOP-9QFHBAI MINGW64 ~/Desktop/Gym/Advanced-Git (main)
-$ git add test3.md && git commit -m "chore: Create third and fourth files"^C
-
-TheGym@DESKTOP-9QFHBAI MINGW64 ~/Desktop/Gym/Advanced-Git (main)
+TheGym@DESKTOP-9QFHBAI MINGW64 ~/Desktop/Gym/Advanced-Git-Exercises (main)
 $ touch test{1..4}.md
 
-TheGym@DESKTOP-9QFHBAI MINGW64 ~/Desktop/Gym/Advanced-Git (main)
+TheGym@DESKTOP-9QFHBAI MINGW64 ~/Desktop/Gym/Advanced-Git-Exercises (main)
 $ git add test1.md && git commit -m "chore: Create initial file"
-[main 1c69ee9] chore: Create initial file
+[main (root-commit) 8b3c8fb] chore: Create initial file
  1 file changed, 0 insertions(+), 0 deletions(-)
  create mode 100644 test1.md
 
-TheGym@DESKTOP-9QFHBAI MINGW64 ~/Desktop/Gym/Advanced-Git (main)
+TheGym@DESKTOP-9QFHBAI MINGW64 ~/Desktop/Gym/Advanced-Git-Exercises (main)
 $ git add test2.md && git commit -m "chore: Create another file"
-[main 7f864c1] chore: Create another file
+[main 97204f1] chore: Create another file
  1 file changed, 0 insertions(+), 0 deletions(-)
  create mode 100644 test2.md
 
-TheGym@DESKTOP-9QFHBAI MINGW64 ~/Desktop/Gym/Advanced-Git (main)
+TheGym@DESKTOP-9QFHBAI MINGW64 ~/Desktop/Gym/Advanced-Git-Exercises (main)
+chore: Create third and fourth files
 $ git add test3.md && git commit -m "chore: Create third and fourth files"
-[main b193351] chore: Create third and fourth files
+[main 9cc368d] chore: Create third and fourth files
  1 file changed, 0 insertions(+), 0 deletions(-)
  create mode 100644 test3.md
 
-```
-
-## Refining git history
-
-### Missing files
-
-```
-TheGym@DESKTOP-9QFHBAI MINGW64 ~/Desktop/Gym/Advanced-Git (main)
+TheGym@DESKTOP-9QFHBAI MINGW64 ~/Desktop/Gym/Advanced-Git-Exercises (main)
 $ git status
 On branch main
-Your branch is ahead of 'origin/main' by 3 commits.
-  (use "git push" to publish your local commits)
+edit 97204f1 chore: Create another file
+Your branch is based on 'origin/main', but the upstream is gone.
+  (use "git branch --unset-upstream" to fixup)
 
 Untracked files:
   (use "git add <file>..." to include in what will be committed)
@@ -57,46 +38,51 @@ Untracked files:
 
 nothing added to commit but untracked files present (use "git add" to track)
 
-TheGym@DESKTOP-9QFHBAI MINGW64 ~/Desktop/Gym/Advanced-Git (main)
+TheGym@DESKTOP-9QFHBAI MINGW64 ~/Desktop/Gym/Advanced-Git-Exercises (main)
 $ git log
-commit b193351b24f69e39b5434eaaada750b4dd3a2473 (HEAD -> main)
+chore: Create second file
+commit 9cc368dd07bb10ef6cb474d7bb2ff026de77b715 (HEAD -> main)
 Author: Chartine02 <noellachartine125@gmail.com>
-Date:   Mon May 20 19:42:41 2024 +0200
+Date:   Tue May 21 11:54:13 2024 +0200
 
     chore: Create third and fourth files
 
-commit 7f864c12043b80ab3d18a7c87188c9035d1a6609
+commit 97204f189761b133c3b92bc198826bd215ff3010
 Author: Chartine02 <noellachartine125@gmail.com>
-Date:   Mon May 20 19:42:08 2024 +0200
+Date:   Tue May 21 11:54:12 2024 +0200
 
     chore: Create another file
 
-commit 1c69ee9a5e9c8f28cd6fb5ce3ba317e49c20ed8c
+commit 8b3c8fbd024f95ca43b2dc241e7fb822ad6501e1
 Author: Chartine02 <noellachartine125@gmail.com>
-Date:   Mon May 20 19:42:07 2024 +0200
+Date:   Tue May 21 11:54:11 2024 +0200
 
     chore: Create initial file
 
-commit b295bded34791990476b539e634b3fd451e2ddce (origin/main, origin/HEAD)
-Author: Chartine02 <141454615+Chartine02@users.noreply.github.com>
-Date:   Mon May 20 17:08:37 2024 +0100
+```
 
-    Initial commit
+## Refining git history
 
-TheGym@DESKTOP-9QFHBAI MINGW64 ~/Desktop/Gym/Advanced-Git (main)
-$ git commit --amend -m "created the fourth file"
-[main ba0b696] created the fourth file
- Date: Mon May 20 19:42:41 2024 +0200
- 1 file changed, 0 insertions(+), 0 deletions(-)
+```
+TheGym@DESKTOP-9QFHBAI MINGW64 ~/Desktop/Gym/Advanced-Git-Exercises (main)
+$ git add .
+
+TheGym@DESKTOP-9QFHBAI MINGW64 ~/Desktop/Gym/Advanced-Git-Exercises (main)
+$ git commit --amend
+pick 8b3c8fb chore: Create initial file
+# This is a combination of 2 commits.
+[main 9ceed82] chore: Create third and fourth files
+ Date: Tue May 21 11:54:13 2024 +0200
+ 2 files changed, 0 insertions(+), 0 deletions(-)
  create mode 100644 test3.md
+ create mode 100644 test4.md
 ```
 
-### Edit commit history
+### 1.Missing files
 
 ```
-TheGym@DESKTOP-9QFHBAI MINGW64 ~/Desktop/Gym/Advanced-Git (main)
-$ git  rebase -i --root
-Stopped at 7f864c1...  chore: Create another file
+$ git rebase -i HEAD~2
+Stopped at 97204f1...  chore: Create another file
 You can amend the commit now, with
 
   git commit --amend
@@ -105,73 +91,210 @@ Once you are satisfied with your changes, run
 
   git rebase --continue
 
-TheGym@DESKTOP-9QFHBAI MINGW64 ~/Desktop/Gym/Advanced-Git (main|REBASE 3/5)
+TheGym@DESKTOP-9QFHBAI MINGW64 ~/Desktop/Gym/Advanced-Git-Exercises (main|REBASE 1/2)
 $ git commit --amend
-[detached HEAD f6ae3bc] chore: Create second file
- Date: Mon May 20 19:42:08 2024 +0200
+[detached HEAD 38d44fd] chore: Create second file
+ Date: Tue May 21 11:54:12 2024 +0200
  1 file changed, 0 insertions(+), 0 deletions(-)
  create mode 100644 test2.md
 
-TheGym@DESKTOP-9QFHBAI MINGW64 ~/Desktop/Gym/Advanced-Git (main|REBASE 3/5)
+ TheGym@DESKTOP-9QFHBAI MINGW64 ~/Desktop/Gym/Advanced-Git-Exercises (main|REBASE 1/2)
 $ git rebase --continue
-You must edit all merge conflicts and then
-mark them as resolved using git add
-
-TheGym@DESKTOP-9QFHBAI MINGW64 ~/Desktop/Gym/Advanced-Git (main|REBASE 3/5)
-$ git add .
-
-TheGym@DESKTOP-9QFHBAI MINGW64 ~/Desktop/Gym/Advanced-Git (main|REBASE 3/5)
-$ git commit -m 'updated readme'
-[detached HEAD 2eaaa04] updated readme
- 1 file changed, 1 insertion(+), 1 deletion(-)
+Successfully rebased and updated refs/heads/main.
 
 ```
 
-### Keeping History Tidy - Squashing Commits
+### 2.Edit commit history
 
 ```
+
+TheGym@DESKTOP-9QFHBAI MINGW64 ~/Desktop/Gym/Advanced-Git-Exercises (main)
+$ git reset HEAD~
+
+TheGym@DESKTOP-9QFHBAI MINGW64 ~/Desktop/Gym/Advanced-Git-Exercises (main)
+$ git add test3.md && git commit -m 'Add third file'
+[main e945194] Add third file
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 test3.md
+
+TheGym@DESKTOP-9QFHBAI MINGW64 ~/Desktop/Gym/Advanced-Git-Exercises (main)
+$ git add test4.md && git commit -m 'Add fourth file'
+[main c43b75e] Add fourth file
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 test4.md
+
+
+```
+
+### 3.Keeping History Tidy - Squashing Commits
+
+```
+
 TheGym@DESKTOP-9QFHBAI MINGW64 ~/Desktop/Gym/Advanced-Git (main)
 $ git rebase -i --root
 [detached HEAD 586ba7e] Creating initial files
- Date: Mon May 20 19:42:07 2024 +0200
- 2 files changed, 0 insertions(+), 0 deletions(-)
- create mode 100644 test1.md
- create mode 100644 test2.md
+Date: Mon May 20 19:42:07 2024 +0200
+2 files changed, 0 insertions(+), 0 deletions(-)
+create mode 100644 test1.md
+create mode 100644 test2.md
 Successfully rebased and updated refs/heads/main.
 
-TheGym@DESKTOP-9QFHBAI MINGW64 ~/Desktop/Gym/Advanced-Git (main)
+```
+
+### 4.Splitting commit
+
+```
+
+TheGym@DESKTOP-9QFHBAI MINGW64 ~/Desktop/Gym/Advanced-Git-Exercises (main)
+$ git reset HEAD~
+
+TheGym@DESKTOP-9QFHBAI MINGW64 ~/Desktop/Gym/Advanced-Git-Exercises (main)
+$ git add test3.md && git commit -m 'Add third file'
+[main e945194] Add third file
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 test3.md
+
+TheGym@DESKTOP-9QFHBAI MINGW64 ~/Desktop/Gym/Advanced-Git-Exercises (main)
+$ git add test4.md && git commit -m 'Add fourth file'
+[main c43b75e] Add fourth file
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 test4.md
+
+```
+
+### 5.Advanced Squashing
+
+```
+TheGym@DESKTOP-9QFHBAI MINGW64 ~/Desktop/Gym/Advanced-Git-Exercises (main)
+$ git rebase -i --root
+[detached HEAD e321886] Create third and fourth files
+ Date: Tue May 21 12:15:04 2024 +0200
+ 2 files changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 test3.md
+ create mode 100644 test4.md
+Successfully rebased and updated refs/heads/main.
+```
+
+### 6.Dropping a Commit
+
+```
+TheGym@DESKTOP-9QFHBAI MINGW64 ~/Desktop/Gym/Advanced-Git-Exercises (main)
+$ git add unwanted.txt
+
+TheGym@DESKTOP-9QFHBAI MINGW64 ~/Desktop/Gym/Advanced-Git-Exercises (main)
+$ git commit -m 'Unwanted commit'
+[main 9e27263] Unwanted commit
+ 1 file changed, 1 insertion(+)
+ create mode 100644 unwanted.txt
+
+
+TheGym@DESKTOP-9QFHBAI MINGW64 ~/Desktop/Gym/Advanced-Git-Exercises (main)
+$ git rebase -i --root
+Stopped at 9e27263...  Unwanted commit
+You can amend the commit now, with
+
+  git commit --amend
+
+Once you are satisfied with your changes, run
+
+  git rebase --continue
+
+TheGym@DESKTOP-9QFHBAI MINGW64 ~/Desktop/Gym/Advanced-Git-Exercises (main|REBASE 3/3)
+$ git reset --hard HEAD~1
+HEAD is now at e321886 Create third and fourth files
+```
+
+### 7.Reordering Commits
+
+```
+git rebase -i --root
+```
+
+### 8.Cherry-Picking Commits
+
+```
+TheGym@DESKTOP-9QFHBAI MINGW64 ~/Desktop/Gym/Advanced-Git-Exercises (main)
+$ git checkout -b ft-branch
+Switched to a new branch 'ft-branch'
+
+TheGym@DESKTOP-9QFHBAI MINGW64 ~/Desktop/Gym/Advanced-Git-Exercises (ft-branch)
+$ touch test5.md
+
+TheGym@DESKTOP-9QFHBAI MINGW64 ~/Desktop/Gym/Advanced-Git-Exercises (ft-branch)
+$ git add .
+
+TheGym@DESKTOP-9QFHBAI MINGW64 ~/Desktop/Gym/Advanced-Git-Exercises (ft-branch)
+$ git commit -m 'Implemented test 5'
+[ft-branch ea5afb0] Implemented test 5
+ 1 file changed, 1 insertion(+)
+ create mode 100644 test5.md
+
+TheGym@DESKTOP-9QFHBAI MINGW64 ~/Desktop/Gym/Advanced-Git-Exercises (ft-branch)
 $ git log
-commit 85362b6b7e23ec54651848bac2041ea526869e4b (HEAD -> main)
+commit ea5afb0ef11c769a76666d65723cfde2f7f71532 (HEAD -> ft-branch)
 Author: Chartine02 <noellachartine125@gmail.com>
-Date:   Tue May 21 07:54:22 2024 +0200
+Date:   Tue May 21 14:31:00 2024 +0200
 
-    Updated readme
+    Implemented test 5
 
-commit e944609d6e86f950577fb71eee6686b74b8c85da
+commit 7feaa8420a5cb347b6faee067f8240437cf56d3f (main)
 Author: Chartine02 <noellachartine125@gmail.com>
-Date:   Mon May 20 19:42:41 2024 +0200
+Date:   Tue May 21 11:54:11 2024 +0200
 
-    created the fourth file
+    Create initial files
 
-commit 204e37ac695a583fb533a01411df6e87d0eccf21
+    chore: Create initial file
+
+    chore: Create second file
+
+commit 51d7a039903183e11576fa4df4f196570d063198
 Author: Chartine02 <noellachartine125@gmail.com>
-Date:   Tue May 21 08:11:26 2024 +0200
+Date:   Tue May 21 12:15:04 2024 +0200
 
-    updated readme
+    Create third and fourth files
 
-commit 586ba7e4eeb11e6963b1832164ce801c978f3b29
+    Add third file
+
+    Add fourth file
+
+TheGym@DESKTOP-9QFHBAI MINGW64 ~/Desktop/Gym/Advanced-Git-Exercises (ft-branch)
+$ git checkout main
+Switched to branch 'main'
+Your branch is based on 'origin/main', but the upstream is gone.
+  (use "git branch --unset-upstream" to fixup)
+
+TheGym@DESKTOP-9QFHBAI MINGW64 ~/Desktop/Gym/Advanced-Git-Exercises (main)
+$ git cherry-pick ea5afb0ef11c769a76666d65723cfde2f7f71532
+[main fc3d1af] Implemented test 5
+ Date: Tue May 21 14:31:00 2024 +0200
+ 1 file changed, 1 insertion(+)
+ create mode 100644 test5.md
+
+TheGym@DESKTOP-9QFHBAI MINGW64 ~/Desktop/Gym/Advanced-Git-Exercises (main)
+$ git log
+commit fc3d1afce1ab6be4ce44fad98f1f57f865f30ad7 (HEAD -> main)
 Author: Chartine02 <noellachartine125@gmail.com>
-Date:   Mon May 20 19:42:07 2024 +0200
+Date:   Tue May 21 14:31:00 2024 +0200
 
-    Creating initial files
+    Implemented test 5
 
-```
+commit 7feaa8420a5cb347b6faee067f8240437cf56d3f
+Author: Chartine02 <noellachartine125@gmail.com>
+Date:   Tue May 21 11:54:11 2024 +0200
 
-### Splitting commit
+    Create initial files
 
-```
-git reflog
-git rebase -i b193351
-git reset HEAD~
-git rebase --continue
+    chore: Create initial file
+
+    chore: Create second file
+
+commit 51d7a039903183e11576fa4df4f196570d063198
+Author: Chartine02 <noellachartine125@gmail.com>
+Date:   Tue May 21 12:15:04 2024 +0200
+
+    Create third and fourth files
+
+    Add third file
+
+    Add fourth file
 ```
