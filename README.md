@@ -166,3 +166,12 @@ Date:   Mon May 20 19:42:07 2024 +0200
     Creating initial files
 
 ```
+
+### Splitting commit
+
+```
+git reflog
+git rebase -i b193351
+git reset HEAD~
+git rebase --continue
+```
