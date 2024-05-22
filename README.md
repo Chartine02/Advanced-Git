@@ -2,7 +2,7 @@
 
 ### Initialize Your Environment
 
-```
+```bash
 TheGym@DESKTOP-9QFHBAI MINGW64 ~/Desktop/Gym/Advanced-Git-Exercises (main)
 $ touch test{1..4}.md
 
@@ -63,7 +63,7 @@ Date:   Tue May 21 11:54:11 2024 +0200
 
 ### Part 1: Refining git history
 
-```
+```bash
 TheGym@DESKTOP-9QFHBAI MINGW64 ~/Desktop/Gym/Advanced-Git-Exercises (main)
 $ git add .
 
@@ -80,7 +80,7 @@ pick 8b3c8fb chore: Create initial file
 
 ### 1.Missing files
 
-```
+```bash
 $ git rebase -i HEAD~2
 Stopped at 97204f1...  chore: Create another file
 You can amend the commit now, with
@@ -106,7 +106,7 @@ Successfully rebased and updated refs/heads/main.
 
 ### 2.Edit commit history
 
-```
+```bash
 
 TheGym@DESKTOP-9QFHBAI MINGW64 ~/Desktop/Gym/Advanced-Git-Exercises (main)
 $ git reset HEAD~
@@ -128,7 +128,7 @@ $ git add test4.md && git commit -m 'Add fourth file'
 
 ### 3.Keeping History Tidy - Squashing Commits
 
-```
+```bash
 
 TheGym@DESKTOP-9QFHBAI MINGW64 ~/Desktop/Gym/Advanced-Git (main)
 $ git rebase -i --root
@@ -143,8 +143,7 @@ Successfully rebased and updated refs/heads/main.
 
 ### 4.Splitting commit
 
-```
-
+```bash
 TheGym@DESKTOP-9QFHBAI MINGW64 ~/Desktop/Gym/Advanced-Git-Exercises (main)
 $ git reset HEAD~
 
@@ -164,7 +163,7 @@ $ git add test4.md && git commit -m 'Add fourth file'
 
 ### 5.Advanced Squashing
 
-```
+```bash
 TheGym@DESKTOP-9QFHBAI MINGW64 ~/Desktop/Gym/Advanced-Git-Exercises (main)
 $ git rebase -i --root
 [detached HEAD e321886] Create third and fourth files
@@ -177,7 +176,7 @@ Successfully rebased and updated refs/heads/main.
 
 ### 6.Dropping a Commit
 
-```
+```bash
 TheGym@DESKTOP-9QFHBAI MINGW64 ~/Desktop/Gym/Advanced-Git-Exercises (main)
 $ git add unwanted.txt
 
@@ -206,13 +205,13 @@ HEAD is now at e321886 Create third and fourth files
 
 ### 7.Reordering Commits
 
-```
+```bash
 git rebase -i --root
 ```
 
 ### 8.Cherry-Picking Commits
 
-```
+```bash
 TheGym@DESKTOP-9QFHBAI MINGW64 ~/Desktop/Gym/Advanced-Git-Exercises (main)
 $ git checkout -b ft-branch
 Switched to a new branch 'ft-branch'
@@ -301,7 +300,7 @@ Date:   Tue May 21 12:15:04 2024 +0200
 
 ### 9.Visualizing Commit History (Bonus)
 
-```
+```bash
 TheGym@DESKTOP-9QFHBAI MINGW64 ~/Desktop/Gym/Advanced-Git-Exercises (main)
 $ git log --graph
 * commit fc3d1afce1ab6be4ce44fad98f1f57f865f30ad7 (HEAD -> main)
@@ -334,7 +333,7 @@ $ git log --graph
 
 ### 10.Understanding Reflogs (Bonus)
 
-```
+```bash
 TheGym@DESKTOP-9QFHBAI MINGW64 ~/Desktop/Gym/Advanced-Git-Exercises (main)
 $ git reflog
 fc3d1af (HEAD -> main) HEAD@{0}: cherry-pick: Implemented test 5
@@ -383,9 +382,9 @@ be54904 HEAD@{41}: rebase (pick): chore: Create third and fourth files
 
 ## Part 2 : Branching Basics (10 Challenges)
 
-### Feature Branch Creation
+### 1.Feature Branch Creation
 
-```
+```bash
 TheGym@DESKTOP-9QFHBAI MINGW64 ~/Desktop/Gym/Advanced-Git-Exercises (ft/new-feature)
 $ git add .
 
@@ -396,9 +395,9 @@ $ git commit -m 'Implemented core functionality for new feature.'
  create mode 100644 feature.txt
 ```
 
-#### Switching Back and Making More Changes
+#### 3.Switching Back and Making More Changes
 
-```
+```bash
 TheGym@DESKTOP-9QFHBAI MINGW64 ~/Desktop/Gym/Advanced-Git-Exercises (ft/new-feature)
 $ git checkout main
 Switched to branch 'main'
@@ -418,9 +417,9 @@ $ git commit -m 'Updated project readme'
  create mode 100644 readme.txt
 ```
 
-### Local vs. Remote Branches
+### 4.Local vs. Remote Branches
 
-```
+```bash
 TheGym@DESKTOP-9QFHBAI MINGW64 ~/Desktop/Gym/Advanced-Git-Exercises (main)
 $ git pull
 remote: Enumerating objects: 1, done.
@@ -437,10 +436,61 @@ Fast-forward
 
 ```
 
-### Branch Deletion
+### 5.Branch Deletion
 
-```
+```bash
 TheGym@DESKTOP-9QFHBAI MINGW64 ~/Desktop/Gym/Advanced-Git-Exercises (main)
 $ git branch -d ft/new-feature
 Deleted branch ft/new-feature (was 5e5d9e2).
+```
+
+### 6. Branch Merging
+
+```bash
+TheGym@DESKTOP-9QFHBAI MINGW64 ~/Desktop/Gym/Advanced-Git-Exercises (ft/new-branch-from-commit)
+$ git checkout main
+Switched to branch 'main'
+Your branch is up to date with 'origin/main'.
+
+TheGym@DESKTOP-9QFHBAI MINGW64 ~/Desktop/Gym/Advanced-Git-Exercises (main)
+$ git merge ft/new-branch-from-commit
+Merge made by the 'ort' strategy.
+ test-commit.txt | 3 +++
+ 1 file changed, 3 insertions(+)
+ create mode 100644 test-commit.txt
+```
+
+### 8. Branch Rebasing
+
+```bash
+TheGym@DESKTOP-9QFHBAI MINGW64 ~/Desktop/Gym/Advanced-Git-Exercises (ft/new-branch-from-commit)
+$ git rebase main
+Successfully rebased and updated refs/heads/ft/new-branch-from-commit.
+```
+
+### 10.
+
+```bash
+  TheGym@DESKTOP-9QFHBAI MINGW64 ~/Desktop/Gym/Advanced-Git-Exercises (main)
+$ git checkout ecca20c
+Note: switching to 'ecca20c'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by switching back to a branch.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -c with the switch command. Example:
+
+  git switch -c <new-branch-name>
+
+Or undo this operation with:
+
+  git switch -
+
+Turn off this advice by setting config variable advice.detachedHead to false
+
+HEAD is now at ecca20c Add new file
+
+TheGym@DESKTOP-9QFHBAI MINGW64 ~/Desktop/Gym/Advanced-Git-Exercises ((ecca20c...))
 ```
