@@ -380,7 +380,7 @@ be54904 HEAD@{40}: rebase (finish): returning to refs/heads/main
 be54904 HEAD@{41}: rebase (pick): chore: Create third and fourth files
 ```
 
-## Part 2 : Branching Basics (10 Challenges)
+## Part 2: Branching Basics (10 Challenges)
 
 ### 1.Feature Branch Creation
 
@@ -460,6 +460,14 @@ Merge made by the 'ort' strategy.
  create mode 100644 test-commit.txt
 ```
 
+### 7.Creating a branch from a commit
+
+```bash
+
+$ git checkout -b ft/new-branch-from-commit 1d2d98d687d3b02269d6775955c67f098a3ac7f0
+Switched to a new branch 'ft/new-branch-from-commit'
+```
+
 ### 8. Branch Rebasing
 
 ```bash
@@ -493,4 +501,171 @@ Turn off this advice by setting config variable advice.detachedHead to false
 HEAD is now at ecca20c Add new file
 
 TheGym@DESKTOP-9QFHBAI MINGW64 ~/Desktop/Gym/Advanced-Git-Exercises ((ecca20c...))
+```
+
+## Part 3: Advanced Workflows
+
+### 1.Stashing Changes:
+
+```bash
+  TheGym@DESKTOP-9QFHBAI MINGW64 ~/Desktop/Gym/Advanced-Git-Exercises (main)
+$ git add .
+
+TheGym@DESKTOP-9QFHBAI MINGW64 ~/Desktop/Gym/Advanced-Git-Exercises (main)
+$ git stash
+Saved working directory and index state WIP on main: e8c1e0b Merge branch 'ft/new-branch-from-commit' merge
+new-branch-from-commit into main
+```
+
+### 2.Retrieving Stashed Changes:
+
+```bash
+  TheGym@DESKTOP-9QFHBAI MINGW64 ~/Desktop/Gym/Advanced-Git-Exercises (main)
+$ git stash pop
+On branch main
+Your branch is ahead of 'origin/main' by 2 commits.
+  (use "git push" to publish your local commits)
+
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        new file:   file1.txt
+
+Dropped refs/stash@{0} (71e220a6441ce0caad8c576008b9b7b8d26b524d)
+
+```
+
+### 3.Branch Merging Conflicts (Continued)
+
+```bash
+  TheGym@DESKTOP-9QFHBAI MINGW64 ~/Desktop/Gym/Advanced-Git-Exercises (main)
+$ git checkout -b ft/fx-feature
+Switched to a new branch 'ft/fx-feature'
+
+TheGym@DESKTOP-9QFHBAI MINGW64 ~/Desktop/Gym/Advanced-Git-Exercises (ft/fx-feature)                                                               x-feature)
+$ git add .
+
+TheGym@DESKTOP-9QFHBAI MINGW64 ~/Desktop/Gym/Advanced-Git-Exercises (ft/fx-feature)
+$ git commit -m 'Fix feature'
+[ft/fx-feature 77a280a] Fix feature
+ 2 files changed, 1 insertion(+), 2 deletions(-)
+ TheGym@DESKTOP-9QFHBAI MINGW64 ~/Desktop/Gym/Advanced-Git-Exercises (ft/fx-feature)
+
+$ git checkout main
+Switched to branch 'main'
+Your branch is ahead of 'origin/main' by 6 commits.
+  (use "git push" to publish your local commits)
+
+  TheGym@DESKTOP-9QFHBAI MINGW64 ~/Desktop/Gym/Advanced-Git-Exercises (main)
+$ git merge ft/fx-feature
+|MERGING)
+
+
+```
+
+### 4.Resolving Merge Conflicts with a Merge Tool:
+
+```bash
+  TheGym@DESKTOP-9QFHBAI MINGW64 ~/Desktop/Gym/Advanced-Git-Exercises (main|MERGING)
+$ git mergetool
+
+This message is displayed because 'merge.tool' is not configured.
+See 'git mergetool --tool-help' or 'git help config' for more details.
+'git mergetool' will now attempt to use one of the following tools:
+opendiff kdiff3 tkdiff xxdiff meld tortoisemerge gvimdiff diffuse diffmerge ecmerge p4merge araxis bc codecompare smerge emerge vimdiff nvimdiff
+Merging:
+file1.txt
+
+Normal merge conflict for 'file1.txt':
+  {local}: modified file
+  {remote}: modified file
+Hit return to start merge resolution tool (vimdiff):
+4 files to edit
+
+TheGym@DESKTOP-9QFHBAI MINGW64 ~/Desktop/Gym/Advanced-Git-Exercises (main|MERGING)
+$ git add .
+
+TheGym@DESKTOP-9QFHBAI MINGW64 ~/Desktop/Gym/Advanced-Git-Exercises (main|MERGING)
+$ git commit -m 'Merge fixed feature into main'
+[main 476478a] Merge fixed feature into main
+
+TheGym@DESKTOP-9QFHBAI MINGW64 ~/Desktop/Gym/Advanced-Git-Exercises (main)
+```
+
+### 5.Understanding Detached HEAD State:
+
+```bash
+TheGym@DESKTOP-9QFHBAI MINGW64 ~/Desktop/Gym/Advanced-Git-Exercises (main)
+$ git checkout ft-branch
+Switched to branch 'ft-branch'
+
+TheGym@DESKTOP-9QFHBAI MINGW64 ~/Desktop/Gym/Advanced-Git-Exercises (ft-branch)
+$ git checkout -b ft/landing
+Switched to a new branch 'ft/landing'
+```
+
+### 6.Ignoring Files/Directories:
+
+```bash
+TheGym@DESKTOP-9QFHBAI MINGW64 ~/Desktop/Gym/Advanced-Git-Exercises (main)
+$ touch .gitignore
+```
+
+### 7.Working with Tags:
+
+```bash
+TheGym@DESKTOP-9QFHBAI MINGW64 ~/Desktop/Gym/Advanced-Git-Exercises (main)
+$ git tag -a v1.0 -m "Release version 1.0"
+
+TheGym@DESKTOP-9QFHBAI MINGW64 ~/Desktop/Gym/Advanced-Git-Exercises (main)
+$ git tag
+v1.0
+```
+
+### 8.Listing and Deleting Tags:
+
+```bash
+TheGym@DESKTOP-9QFHBAI MINGW64 ~/Desktop/Gym/Advanced-Git-Exercises (main)
+$ git tag -a v1.001 -m "Release version 1.001"
+
+TheGym@DESKTOP-9QFHBAI MINGW64 ~/Desktop/Gym/Advanced-Git-Exercises (main)
+$ git tag
+v1.0
+v1.001
+
+TheGym@DESKTOP-9QFHBAI MINGW64 ~/Desktop/Gym/Advanced-Git-Exercises (main)
+$ git tag -d v1.001
+Deleted tag 'v1.001' (was 9c188e9)
+```
+
+### 9.Pushing Local Work to Remote Repositories:
+
+```bash
+TheGym@DESKTOP-9QFHBAI MINGW64 ~/Desktop/Gym/Advanced-Git-Exercises (main)
+$ git add .
+
+TheGym@DESKTOP-9QFHBAI MINGW64 ~/Desktop/Gym/Advanced-Git-Exercises (main)
+$ git commit -m 'Change on various files'
+[main ddbde37] Change on various files
+ 1 file changed, 1 insertion(+)
+ create mode 100644 .gitignore
+
+TheGym@DESKTOP-9QFHBAI MINGW64 ~/Desktop/Gym/Advanced-Git-Exercises (main)
+$ git push
+Enumerating objects: 35, done.
+Counting objects: 100% (34/34), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (25/25), done.
+Writing objects: 100% (31/31), 2.99 KiB | 191.00 KiB/s, done.
+Total 31 (delta 12), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas: 100% (12/12), done.
+To https://github.com/Chartine02/Advanced-Git-Exercises.git
+   fc28666..ddbde37  main -> main
+```
+
+### 10.Pulling Changes from Remote Repositories:
+
+```bash
+TheGym@DESKTOP-9QFHBAI MINGW64 ~/Desktop/Gym/Advanced-Git-Exercises (main)
+$ git pull
+Already up to date.
 ```
