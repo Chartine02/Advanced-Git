@@ -667,5 +667,11 @@ To https://github.com/Chartine02/Advanced-Git-Exercises.git
 ```bash
 TheGym@DESKTOP-9QFHBAI MINGW64 ~/Desktop/Gym/Advanced-Git-Exercises (main)
 $ git pull
+remote: Enumerating objects: 1, done.
+remote: Counting objects: 100% (1/1), done.
+remote: Total 1 (delta 0), reused 0 (delta 0), pack-reused 0
+Unpacking objects: 100% (1/1), 887 bytes | 80.00 KiB/s, done.
+From https://github.com/Chartine02/Advanced-Git-Exercises
+   6bc9c41..1af0403  ft/new-feature -> origin/ft/new-feature
 Already up to date.
 ```
