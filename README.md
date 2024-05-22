@@ -386,5 +386,61 @@ be54904 HEAD@{41}: rebase (pick): chore: Create third and fourth files
 ### Feature Branch Creation
 
 ```
+TheGym@DESKTOP-9QFHBAI MINGW64 ~/Desktop/Gym/Advanced-Git-Exercises (ft/new-feature)
+$ git add .
 
+TheGym@DESKTOP-9QFHBAI MINGW64 ~/Desktop/Gym/Advanced-Git-Exercises (ft/new-feature)
+$ git commit -m 'Implemented core functionality for new feature.'
+[ft/new-feature 5e5d9e2] Implemented core functionality for new feature.
+ 1 file changed, 1 insertion(+)
+ create mode 100644 feature.txt
+```
+
+#### Switching Back and Making More Changes
+
+```
+TheGym@DESKTOP-9QFHBAI MINGW64 ~/Desktop/Gym/Advanced-Git-Exercises (ft/new-feature)
+$ git checkout main
+Switched to branch 'main'
+Your branch is based on 'origin/main', but the upstream is gone.
+  (use "git branch --unset-upstream" to fixup)
+
+TheGym@DESKTOP-9QFHBAI MINGW64 ~/Desktop/Gym/Advanced-Git-Exercises (main)
+$ touch readme.txt
+
+TheGym@DESKTOP-9QFHBAI MINGW64 ~/Desktop/Gym/Advanced-Git-Exercises (main)
+$ git add readme.txt
+
+TheGym@DESKTOP-9QFHBAI MINGW64 ~/Desktop/Gym/Advanced-Git-Exercises (main)
+$ git commit -m 'Updated project readme'
+[main 5446465] Updated project readme
+ 1 file changed, 1 insertion(+)
+ create mode 100644 readme.txt
+```
+
+### Local vs. Remote Branches
+
+```
+TheGym@DESKTOP-9QFHBAI MINGW64 ~/Desktop/Gym/Advanced-Git-Exercises (main)
+$ git pull
+remote: Enumerating objects: 1, done.
+remote: Counting objects: 100% (1/1), done.
+remote: Total 1 (delta 0), reused 0 (delta 0), pack-reused 0
+Unpacking objects: 100% (1/1), 897 bytes | 42.00 KiB/s, done.
+From https://github.com/Chartine02/Advanced-Git-Exercises
+   5446465..fc28666  main       -> origin/main
+Updating 5446465..fc28666
+Fast-forward
+ feature.txt | 1 +
+ 1 file changed, 1 insertion(+)
+ create mode 100644 feature.txt
+
+```
+
+### Branch Deletion
+
+```
+TheGym@DESKTOP-9QFHBAI MINGW64 ~/Desktop/Gym/Advanced-Git-Exercises (main)
+$ git branch -d ft/new-feature
+Deleted branch ft/new-feature (was 5e5d9e2).
 ```
